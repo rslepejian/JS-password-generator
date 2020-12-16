@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Password Generator</title>
+  </head>
+  <body>
+
+    <script>
+        var asciivals = [];
+        randNum = 0;
+        var addition = "";
+        var pass = "";
+        var pwlength = prompt("How long do you want your password to be? Input a number between 8 and 128: ");
+        var lower = confirm("Do you want lowercase characters in you password?");
+        var upper = confirm("Do you want uppercase characters?");
+        var numeric = confirm("Do you want numbers?");
+        var special = confirm("Do you want special characters?");
+        
+        if (lower){
+            for (i = 97; i < 123; i ++){
+                asciivals.push(i);
+            }
+        }
+
+        if (upper){
+            for (i = 65; i < 91; i ++){
+                asciivals.push(i);
+            }
+        }
+
+        if (numeric){
+            for (i = 48; i < 58; i ++){
+                asciivals.push(i);
+            }
+        }
+
+        if (special){
+            for (i = 32; i < 48; i ++){
+                asciivals.push(i);
+            }
+            for (i = 58; i < 65; i ++){
+                asciivals.push(i);
+            }
+            for (i = 91; i < 97; i ++){
+                asciivals.push(i);
+            }
+            for (i = 122; i < 127; i ++){
+                asciivals.push(i);
+            }
+        }
+
+        for(i = 0; i < pwlength;i++){
+            randNum = Math.floor(Math.random()*asciivals.length);
+            addition = String.fromCharCode(asciivals[randNum]);
+            pass = pass + addition;
+        }
+
+        console.log(pass)
+
+    </script>
+    
+  </body>
+</html>
